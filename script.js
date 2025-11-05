@@ -12,20 +12,23 @@ const output = document.getElementById("output");
 function typeText(text, i = 0) {
   if (i < text.length) {
     output.textContent = text.substring(0, i + 1);
-    setTimeout(() => typeText(text, i + 1), 12);
+    setTimeout(() => typeText(text, i + 1), 15);
   }
 }
 
-typeText(sections[currentSection]);
+function loadSection() {
+  output.textContent = "";
+  typeText(sections[currentSection]);
+}
+
+loadSection();
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowDown") {
     currentSection = (currentSection + 1) % sections.length;
-    output.textContent = "";
-    typeText(sections[currentSection]);
+    loadSection();
   } else if (e.key === "ArrowUp") {
     currentSection = (currentSection - 1 + sections.length) % sections.length;
-    output.textContent = "";
-    typeText(sections[currentSection]);
+    loadSection();
   }
 });

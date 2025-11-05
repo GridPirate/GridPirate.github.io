@@ -7,13 +7,11 @@ canvas.height = window.innerHeight;
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
 const fontSize = 14;
 const columns = Math.floor(canvas.width / fontSize);
-
 const drops = new Array(columns).fill(1);
 
-function drawMatrix() {
+function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-
   ctx.fillStyle = "#00ff99";
   ctx.font = fontSize + "px monospace";
 
@@ -28,8 +26,7 @@ function drawMatrix() {
   }
 }
 
-setInterval(drawMatrix, 35);
-
+setInterval(draw, 35);
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
