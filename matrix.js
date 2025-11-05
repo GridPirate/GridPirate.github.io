@@ -1,14 +1,14 @@
-const canvas = document.getElementById("matrixBackground");
+const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
-canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
 const fontSize = 14;
-const columns = canvas.width / fontSize;
+const columns = Math.floor(canvas.width / fontSize);
 
-const drops = Array(Math.floor(columns)).fill(1);
+const drops = new Array(columns).fill(1);
 
 function drawMatrix() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
@@ -31,6 +31,6 @@ function drawMatrix() {
 setInterval(drawMatrix, 35);
 
 window.addEventListener("resize", () => {
-  canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
