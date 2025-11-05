@@ -1,0 +1,5 @@
+{
+  "name": "GridPirat Terminal Portfolio",
+  "description": "An interactive terminal-style portfolio showcasing skills, about, and contact information. Navigate through sections using the up and down arrow keys.",
+  "requestFramePermissions": []
+}
