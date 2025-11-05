@@ -7,21 +7,53 @@
 </head>
 <body>
   <script>
+    // تشغيل محرك اللعبة
     kaboom({
-      background: [30, 30, 60],
+      background: [20, 20, 40],
+      width: 800,
+      height: 600,
+      scale: 1.5,
     });
 
-    // Player
-    const player = add([
-      rect(16, 16),
-      pos(80, 80),
-      color(100, 200, 255),
+    // الأرض
+    add([
+      rect(width(), 20),
+      pos(0, height() - 20),
       area(),
-      body()
+      body({ isStatic: true }),
+      color(100, 100, 100),
     ]);
 
-    // Text zones (sections)
-    add([text("Welcome to my CV 👋", { size: 16 }), pos(40, 20)]);
+    // اللاعب
+    const player = add([
+      rect(16, 16),
+      pos(100, 100),
+      color(0, 180, 255),
+      area(),
+      body(),
+    ]);
+
+    // حركة اليمين والشمال
+    onKeyDown("right", () => {
+      player.move(120, 0);
+    });
+
+    onKeyDown("left", () => {
+      player.move(-120, 0);
+    });
+
+    // نطّة
+    onKeyPress("space", () => {
+      if (player.isGrounded()) {
+        player.jump(320);
+      }
+    });
+
+    // عنوان بسيط
+    add([
+      text("GridPirate CV - Press ← → to move", { size: 16 }),
+      pos(20, 20)
+    ]);
   </script>
 </body>
 </html>
