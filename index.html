@@ -1,7 +1,27 @@
-<html>
-<head><title>GridPirate</title></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GridPirate - Pixel CV</title>
+  <script src="https://unpkg.com/kaboom@3000.0.0/dist/kaboom.js"></script>
+</head>
 <body>
-  <h1>Welcome to GridPirate ⚡</h1>
-  <p>This is my personal website!</p>
+  <script>
+    kaboom({
+      background: [30, 30, 60],
+    });
+
+    // Player
+    const player = add([
+      rect(16, 16),
+      pos(80, 80),
+      color(100, 200, 255),
+      area(),
+      body()
+    ]);
+
+    // Text zones (sections)
+    add([text("Welcome to my CV 👋", { size: 16 }), pos(40, 20)]);
+  </script>
 </body>
 </html>
